@@ -58,6 +58,29 @@ targets:
         - libxext6
         - libxkbcommon0
         - libxkbcommon-x11-0
+  linux-aarch64:
+    var:
+      deb_arch: arm64
+      appimage_arch: aarch64
+      arch_deps:
+        # libs
+        - libfontconfig1:arm64
+        - libfreetype6:arm64
+        - libx11-xcb1:arm64
+        - libxcb-icccm4:arm64
+        - libxcb-image0:arm64
+        - libxcb-shm0:arm64
+        - libxcb-keysyms1:arm64
+        - libxcb-randr0:arm64
+        - libxcb-render0:arm64
+        - libxcb-render-util0:arm64
+        - libxcb-shape0:arm64
+        - libxcb-sync1:arm64
+        - libxcb-xfixes0:arm64
+        - libxcb-xinerama0:arm64
+        - libxext6:arm64
+        - libxkbcommon0:arm64
+        - libxkbcommon-x11-0:arm64
   macos:
     var:
       deps:
@@ -87,6 +110,10 @@ input_files:
    enable: '[% c("var/linux-x86_64") %]'
    URL: https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20231026-1/linuxdeploy-x86_64.AppImage
    sha256sum: c242e21f573532c03adc2c356b70055ee0de2ae66e235d086b714e69d2cae529
+ - name: linuxdeploy
+   enable: '[% c("var/linux-aarch64") %]'
+   URL: https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20231206-1/linuxdeploy-aarch64.AppImage
+   sha256sum: f0c0a06cec220711d3630e686ac898a72c5c39ea46b28a2a3341cd7484e82350
    # windows packaging
  - filename: windows
    enable: '[% c("var/windows") %]'

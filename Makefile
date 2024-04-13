@@ -21,12 +21,16 @@ clean:
 ricochet-linux-stable:
 	$(MAKE) ricochet-linux-i686-stable
 	$(MAKE) ricochet-linux-x86_64-stable
+	$(MAKE) ricochet-linux-aarch64-stable
 
 ricochet-linux-i686-stable: submodule-update
 	$(rbm) build package --target linux --target linux-i686 --target stable
 
 ricochet-linux-x86_64-stable: submodule-update
 	$(rbm) build package --target linux --target linux-x86_64 --target stable
+
+ricochet-linux-aarch64-stable: submodule-update
+	$(rbm) build package --target linux --target linux-aarch64 --target stable
 
 ricochet-macos-stable:
 	$(MAKE) ricochet-macos-x86_64-stable
@@ -59,12 +63,16 @@ ricochet-release-stable-sign: submodule-update
 ricochet-linux-alpha:
 	$(MAKE) ricochet-linux-i686-alpha
 	$(MAKE) ricochet-linux-x86_64-alpha
+	$(MAKE) ricochet-linux-aarch64-alpha
 
 ricochet-linux-i686-alpha: submodule-update
 	$(rbm) build package --target linux --target linux-i686 --target alpha
 
 ricochet-linux-x86_64-alpha: submodule-update
 	$(rbm) build package --target linux --target linux-x86_64 --target alpha
+
+ricochet-linux-aarch64-alpha: submodule-update
+	$(rbm) build package --target linux --target linux-aarch64 --target alpha
 
 ricochet-macos-alpha:
 	$(MAKE) ricochet-macos-x86_64-alpha
@@ -97,12 +105,16 @@ ricochet-release-alpha-sign: submodule-update
 ricochet-linux-testbuild:
 	$(MAKE) ricochet-linux-i686-testbuild
 	$(MAKE) ricochet-linux-x86_64-testbuild
+	$(MAKE) ricochet-linux-aarch64-testbuild
 
 ricochet-linux-i686-testbuild: submodule-update
 	$(rbm) build package --target linux --target linux-i686 --target testbuild
 
 ricochet-linux-x86_64-testbuild: submodule-update
 	$(rbm) build package --target linux --target linux-x86_64 --target testbuild
+
+ricochet-linux-aarch64-testbuild: submodule-update
+	$(rbm) build package --target linux --target linux-aarch64 --target testbuild
 
 ricochet-macos-testbuild:
 	$(MAKE) ricochet-macos-x86_64-testbuild

@@ -38,9 +38,21 @@ targets:
         suite: bullseye
         arch: amd64
 
+  bullseye-arm64:
+    var:
+      minimal_apt_version: 2.2.4
+      container:
+        suite: bullseye
+        arch: arm64
+
 input_files:
   - project: mmdebstrap
     name: mmdebstrap
   - URL: 'https://cdimage.ubuntu.com/ubuntu-base/releases/[% c("var/ubuntu_version") %]/release/ubuntu-base-[% c("var/ubuntu_version") %]-base-amd64.tar.gz'
     filename: 'container-image_ubuntu-base-[% c("var/ubuntu_version") %]-base-amd64.tar.gz'
     sha256sum: e1f9200c99da008a473c9ae7b51e13f5ea05dc4c2e12beb43f0f9cbbbf6216f4
+    enable: '[% c("var/container/arch") == "amd64" %]'
+  - URL: 'https://cdimage.ubuntu.com/ubuntu-base/releases/[% c("var/ubuntu_version") %]/release/ubuntu-base-[% c("var/ubuntu_version") %]-base-arm64.tar.gz'
+    filename: 'container-image_ubuntu-base-[% c("var/ubuntu_version") %]-base-arm64.tar.gz'
+    sha256sum: b2259205f2e94971e9e146ad1e30925d05d05e6575685cc0125b83746105ec45
+    enable: '[% c("var/container/arch") == "arm64" %]'
