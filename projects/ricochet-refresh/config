@@ -109,3 +109,9 @@ input_files:
     sig_ext: asc
     file_gpg_id: 1
     gpg_keyring: tor-browser.gpg
+    enable: '[% ! c("var/linux-aarch64") %]'
+  - name: tor-expert-bundle
+    URL: https://gitlab.com/NoisyCoil/tor-browser-build/-/releases/tbb-[% c("var/versions/tor-expert-bundle") %]-build[% c("var/versions/tor-expert-bundle-build") %]-arm64/downloads/tor-expert-bundle-linux-arm64-[% c("var/versions/tor-expert-bundle") %].tar.gz
+    filename: tor-expert-bundle-linux-aarch64-[% c("var/versions/tor-expert-bundle") %].tar.gz
+    sha256sum: fd1ac429d429d4dd5370a4d522c314882b97e822855ed3c7e49409a4d39792df
+    enable: '[% c("var/linux-aarch64") %]'
