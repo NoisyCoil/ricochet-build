@@ -12,3 +12,9 @@ input_files:
       '^macos-.*': linux-x86_64
       '^windows$': linux
       '^macos$': linux
+    enable: '[% ! c("var/linux-aarch64") %]'
+  - name: cmake-build
+    project: cmake-build
+    target_replace:
+      '^linux-.*': linux-aarch64
+    enable: '[% c("var/linux-aarch64") %]'
