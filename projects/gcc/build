@@ -4,7 +4,7 @@
 tar -C $builddir -xf $rootdir/[% c("input_files_by_name/gcc-source") %]
 cd $builddir/[% project %]-[% c("version") %]
 
-./configure --prefix=$projdir --enable-multilib --enable-languages=c,c++ --with-arch_32=i686
+./configure --prefix=$projdir --enable-multilib --enable-languages=c,c++ [% IF ! c("var/linux-aarch64") %]--with-arch_32=i686[% END %]
 make -j[% c("num_procs") %]
 make install
 ln -s gcc $projdir/bin/cc

@@ -22,3 +22,9 @@ input_files:
     project: gcc
     target_replace:
       '^linux-.*': linux-x86_64
+    enable: '[% ! c("var/linux-aarch64") %]'
+  - name: gcc
+    project: gcc
+    target_replace:
+      '^linux-.*': linux-aarch64
+    enable: '[% c("var/linux-aarch64") %]'

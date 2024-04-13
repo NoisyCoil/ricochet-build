@@ -9,6 +9,12 @@ var:
     - libmpc-dev
     - libc6-dev-i386
 
+targets:
+  linux-aarch64:
+    var:
+      deps:
+        - libmpc-dev
+
 input_files:
   - project: container-image
   - name: gcc-source
