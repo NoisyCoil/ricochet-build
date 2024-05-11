@@ -5,6 +5,7 @@ container:
   use_container: 1
 
 var:
+  no_crosscompile: 1
   deps:
     - libmpc-dev
     - libc6-dev-i386
